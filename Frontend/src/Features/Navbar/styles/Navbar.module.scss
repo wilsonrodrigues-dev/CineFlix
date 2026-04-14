@@ -1,0 +1,132 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  transition: all var(--transition-normal);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    
+    &:hover, &.active {
+      color: var(--text-primary);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  .searchBox {
+    display: flex;
+    align-items: center;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    padding: 0.5rem 1.2rem;
+    border: 1px solid transparent;
+    transition: border var(--transition-fast);
+
+    &:focus-within {
+      border-color: var(--accent-color);
+    }
+
+    input {
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text-primary);
+      width: 180px;
+      font-size: 0.9rem;
+
+      &::placeholder {
+        color: var(--text-muted);
+      }
+    }
+  }
+
+  button, .iconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background var(--transition-fast);
+    
+    &:hover {
+      background: var(--glass-bg);
+      
+      svg {
+        stroke: var(--text-primary);
+      }
+    }
+  }
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btnLink {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+  
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+.btnPrimary {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  
+  &:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+}
+
+.logoutBtn {
+  cursor: pointer;
+}

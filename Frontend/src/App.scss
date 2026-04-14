@@ -1,0 +1,31 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  /* Content goes all the way up for Hero sections */
+  padding-bottom: 4rem;
+}
+
+.page-container {
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 3rem 4%;
+  position: relative;
+  z-index: 10;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
