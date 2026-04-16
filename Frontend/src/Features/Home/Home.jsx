@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import HeroSlider from "../../Components/HeroSlider/HeroSlider";
 import ContentCarousel from "../../Components/ContentCarousel/ContentCarousel";
 import { useHomeMedia } from "./hooks/home.hook";
-import { ClockFading } from "lucide-react";
 import Sceleton from "../../Components/Sceleton";
 
 const Home = () => {
