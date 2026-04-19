@@ -226,6 +226,7 @@ export async function getPersonDetails(id) {
   const IMG = "https://image.tmdb.org/t/p";
   try {
     const details = await safeRequest(`/person/${id}`);
+    const credits= await safeRequest(`person/${id}/combined_credits`)
     const detail = {
       id: details.data.id,
       name: details.data.name,
@@ -236,6 +237,7 @@ export async function getPersonDetails(id) {
       birthday: details.data.birthday,
       place_of_birth: details.data.place_of_birth,
       known_for_department: details.data.known_for_department,
+      credits:credits.data
     };
     return {
       details: detail,

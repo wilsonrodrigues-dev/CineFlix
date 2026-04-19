@@ -6,9 +6,7 @@ const api=axios.create({
 
 export async function getActorsdata() {
     try {
-        const res=await api.get("/people")
-        console.log("api done")
-
+        const res=await api.get("/actors")
         return res.data
     } catch (error) {
         console.log("api error",error)

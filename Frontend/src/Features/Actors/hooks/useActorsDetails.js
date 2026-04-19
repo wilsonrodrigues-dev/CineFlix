@@ -10,9 +10,7 @@ export const useActorsDetails=()=>{
         try {
             setLoading(true)
             const data=await getActorsdata()
-            console.log(data)
             setActorsData(data.data)
-            console.log("hook Done")
             setLoading(false)
             return data.data
         } catch (error) {

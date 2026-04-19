@@ -23,7 +23,7 @@ const MediaDetails = () => {
   useEffect(() => {
     console.log("running");
     setAlldata();
-  }, []);
+  }, [,id]);
 
   useEffect(() => {
     setData(details.details);

@@ -4,6 +4,7 @@ import styles from "./MediaGrid.module.scss";
 
 const MediaGrid = ({ title, items, showFilters = false, defaultMediaType = "movie" }) => {
   if (!items || items.length === 0) return null;
+  const IMG = "https://image.tmdb.org/t/p";
 
   return (
     <div className={styles.gridWrapper}>
@@ -32,14 +33,14 @@ const MediaGrid = ({ title, items, showFilters = false, defaultMediaType = "movi
           const routeStr = `/${type}/${item.id}`;
           return (
             <Link to={routeStr} key={item.id} className={styles.card}>
-              {item.poster ? (
-                 <img src={item.poster} alt={item.title || item.name} className={styles.poster} />
+              {item.poster || item.poster_path ? (
+                 <img src={item.poster || `https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title || item.name} className={styles.poster} />
               ) : (
                  <div className={styles.poster}></div>
               )}
               <div className={styles.overlay}>
                 <h3 className={styles.title}>{item.title || item.name}</h3>
-                <span className={styles.meta}>Rating: {item.rating ? item.rating: "N/A"}</span>
+                <span className={styles.meta}>Rating: {item.rating ||item.vote_average ? item.rating || item.vote_average: "N/A"}</span>
               </div>
             </Link>
           );

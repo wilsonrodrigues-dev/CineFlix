@@ -3,19 +3,37 @@ import { useParams } from "react-router-dom";
 import styles from "./ActorDetails.module.scss";
 import MediaGrid from "../../Components/MediaGrid/MediaGrid";
 import { dummyActorDetails } from "../../utils/dummyData";
+import { ActorDetailsHook } from "./hooks/ActorDetail.hook";
 
 
 const ActorDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setTimeout(() => {
-       // Simulate fetching actor profile
-       setData({ ...dummyActorDetails, id: id }); 
-    }, 300);
-  }, [id]);
+  const {loading,handleActorDetails,ActorDetail}=ActorDetailsHook()
+
+  async function fetchActordetails(id) {
+    await handleActorDetails(id)
+  }
+
+  useEffect(()=>{
+    fetchActordetails(id)
+  },[])
+
+  useEffect(()=>{
+    if(ActorDetail!=0){
+      console.log(ActorDetail.details)
+      setData(ActorDetail.details)
+    }
+  },[ActorDetail])
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   setTimeout(() => {
+  //      // Simulate fetching actor profile
+  //      setData({ , id: id }); 
+  //   }, 300);
+  // }, [id]);
 
   if (!data) return <div style={{height: "100vh", display: "flex", alignItems:"center", justifyContent:"center"}}>Loading profile...</div>;
 
@@ -23,7 +41,7 @@ const ActorDetails = () => {
     <div className={styles.profileContainer}>
       <header className={styles.profileHeader}>
         <div className={styles.imageWrapper}>
-          <img src={data.profile_path} alt={data.name} />
+          <img src={data.profile} alt={data.name} />
         </div>
         <div className={styles.info}>
           <h1 className={styles.name}>{data.name}</h1>
@@ -38,7 +56,8 @@ const ActorDetails = () => {
 
       <section className={styles.creditsSection}>
         {/* We reuse MediaGrid to display Known For items */}
-        <MediaGrid title="Known For" items={data.movies} />
+        <MediaGrid title="Known For" items={data.credits.cast} />
+        <MediaGrid title="Known For" items={data.credits.crew} />
       </section>
     </div>
   );

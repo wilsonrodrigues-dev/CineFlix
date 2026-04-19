@@ -15,6 +15,7 @@ export const getPeopleController = async (req, res) => {
 
 export const getPersonDetailsController = async (req, res) => {
     const { id } = req.params;
+    console.log(id)
     try {
         const personDetails = await getPersonDetails(id);
         res.status(200).json({

@@ -3,7 +3,7 @@ import { getPeopleController, getPersonDetailsController } from "../controllers/
 
 const router = Router();
 
-router.get("/people",getPeopleController); 
-router.get("/people/:id",getPersonDetailsController);
+router.get("/actors",getPeopleController); 
+router.get("/actors/:id",getPersonDetailsController);
 
 export default router;
