@@ -28,18 +28,18 @@ const MediaGrid = ({ title, items, showFilters = false, defaultMediaType = "movi
 
       <div className={styles.grid}>
         {items.map((item) => {
-          const type = item.media_type || defaultMediaType;
+          const type = item.type || defaultMediaType;
           const routeStr = `/${type}/${item.id}`;
           return (
             <Link to={routeStr} key={item.id} className={styles.card}>
-              {item.poster_path ? (
-                 <img src={item.poster_path} alt={item.title || item.name} className={styles.poster} />
+              {item.poster ? (
+                 <img src={item.poster} alt={item.title || item.name} className={styles.poster} />
               ) : (
                  <div className={styles.poster}></div>
               )}
               <div className={styles.overlay}>
                 <h3 className={styles.title}>{item.title || item.name}</h3>
-                <span className={styles.meta}>Rating: {item.vote_average ? item.vote_average.toFixed(1) : "N/A"}</span>
+                <span className={styles.meta}>Rating: {item.rating ? item.rating: "N/A"}</span>
               </div>
             </Link>
           );

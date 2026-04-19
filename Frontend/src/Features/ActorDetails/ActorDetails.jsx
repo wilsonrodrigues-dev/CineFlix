@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./ActorDetails.module.scss";
 import MediaGrid from "../../Components/MediaGrid/MediaGrid";
 import { dummyActorDetails } from "../../utils/dummyData";
+
 
 const ActorDetails = () => {
   const { id } = useParams();

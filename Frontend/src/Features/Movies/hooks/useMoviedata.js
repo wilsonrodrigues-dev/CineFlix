@@ -11,6 +11,7 @@ export const useMoviedata=()=>{
             setLoading(true);
             const data=await getMovies()
             setMovieData(data.data)
+            console.log("Hook ")
             return data
         } catch (err) {
             console.log(err)
